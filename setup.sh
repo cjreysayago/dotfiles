@@ -8,7 +8,7 @@ sudo apt update && sudo apt upgrade -y
 
 # Install base software
 echo "Installing base software..."
-sudo apt install -y build-essential sh tmux curl git unzip
+sudo apt install -y build-essential tmux curl git unzip zsh-autosuggestions zsh-syntax-highlighting zsh
 sudo snap install go --classic
 curl -sS https://downloads.1password.com/linux/keys/1password.asc | \
   sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg && \
@@ -29,6 +29,11 @@ sh -c "$(curl -fsSL https://php.new/install/linux)"
 # Install OhmyZsh
 echo "Installing ohmyzsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+echo "Adding plugins"
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
 
 # Install NodeJS LTS via nvm
 echo "Installing NodeJS LTS via nvm..."
@@ -44,10 +49,10 @@ fc-cache -fv
 
 # Clone and apply dotfiles
 echo "Applying dotfiles..."
+cp ~/.zshrc ~/.zshrc_bu
 ln -sf ./zsh/.zshrc ~/.zshrc
 ln -sf ./tmux/.tmux.conf ~/.tmux.conf
 ln -sf ./nvim ~/.config/nvim
 
 # Final message
 echo "Your environment is ready! Happy shipping! 🚢"
-
