@@ -57,5 +57,13 @@ nvm install --lts
 echo "Installing PHP..."
 /bin/bash -c "$(curl -fsSL https://php.new/install/linux)"
 
+#Install Bun
+echo "Installing Bun"
+curl -fsSL https://bun.sh/install | bash
+
+#Add tmux plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux source ~/.tmux.conf
+
 # Final message
 echo "Your environment is ready! Happy shipping! 🚢"
