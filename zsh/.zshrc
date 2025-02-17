@@ -115,3 +115,11 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/home/crey/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/crey/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+
+# Herd injected PHP 8.4 configuration.
+export HERD_PHP_84_INI_SCAN_DIR="/Users/crey/Library/Application Support/Herd/config/php/84/"
+
+
+# Herd injected PHP binary.
+export PATH="/Users/crey/Library/Application Support/Herd/bin/":$PATH
