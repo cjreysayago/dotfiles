@@ -104,6 +104,9 @@ curl -fsSL https://bun.sh/install | bash
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 
+# Install Rust
+
 # Final message
 echo "Your environment is ready! Happy shipping! 🚢"
 
+source ~/.zshrc
