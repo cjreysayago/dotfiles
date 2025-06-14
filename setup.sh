@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 echo "Starting environment setup 🙂"
 
@@ -19,13 +19,13 @@ if [ -n "$ubuntu_version" ]; then
     # Update and upgrade system packages
     echo "Updating system packages..."
     sudo apt update && sudo apt upgrade -y
-    
+
     # Install base software
     echo "Installing base software..."
     sudo apt install -y build-essential tmux curl git unzip zsh-autosuggestions zsh-syntax-highlighting zsh
     sudo snap install go --classic
     sudo snap install nvim --classic
-    
+
     # Install 1Password CLI
     curl -sS https://downloads.1password.com/linux/keys/1password.asc | \
       sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg && \
@@ -41,7 +41,7 @@ if [ -n "$ubuntu_version" ]; then
 
 elif [ "$ios" = "Darwin" ]; then
     echo "Detected macOS system"
-    
+
     # Install Homebrew
     if ! command -v brew &> /dev/null; then
         echo "Installing Homebrew..."
@@ -49,12 +49,12 @@ elif [ "$ios" = "Darwin" ]; then
     else
         echo "Homebrew already installed"
     fi
-    
+
     echo "Installing base software..."
     brew install tmux curl git unzip zsh-autosuggestions zsh-syntax-highlighting
     brew install neovim go
     brew install --cask ghostty
-    
+
     # Install Laravel Herd
     echo "Installing Laravel Herd..."
     brew install --cask herd
