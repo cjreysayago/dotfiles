@@ -124,4 +124,3 @@ export HERD_PHP_84_INI_SCAN_DIR="/Users/crey/Library/Application Support/Herd/co
 # Herd injected PHP binary.
 export PATH="/Users/crey/Library/Application Support/Herd/bin/":$PATH
 
-source $HOME/.cargo/env
